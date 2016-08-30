@@ -3,14 +3,36 @@
 <head>
 	<title>TJ Schedule Comparator</title>
 	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	<!-- Compressed CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.css">
+
+<!-- Compressed JavaScript -->
+<script src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
 </head>
 <body>
-<h1>WAIT 2 SECONDS</h1>
+<h1>TJ *New* Schedule Comparator</h1>
+
+<h4 id="updates"></h4>
+<form>
+  <div class="row">
+    <div class="medium-6 columns">
+      <label>Name
+        <input type="text" id="name" placeholder="Boaty McBoatface">
+      </label>
+    </div>
+    <div class="medium-6 columns">
+      <label>Input Label
+        <input type="text" placeholder=".medium-6.columns">
+      </label>
+    </div>
+  </div>
+</form>
 <script type="text/javascript">
 	//window.onload = f();
 	var response = {};
 	
 	function f(){
+		document.getElementById("updates").innerHTML = "Wait for the get request to process...";
 		var username = String(prompt("Please enter your username: ", "2018agurung"));
 		var password = String(prompt("Please enter your password: ", "*******"));
 		var together = btoa(username + ':' + password);
@@ -27,7 +49,12 @@
 	
 	$.when(f()).done(
 		function(response){
-			document.write(response.is_student);
+			document.getElementById("updates").innerHTML = "Finished!";
+			
+			document.getElementById("name").value = response.full_name;
+			//ONCE CLASSES HAS BEEN FIGURED OUT AT SCHOOL, BELOW SHOULD WORK
+
+
 		}
 	);
 	
