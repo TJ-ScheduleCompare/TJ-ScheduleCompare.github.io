@@ -22,9 +22,9 @@
     </div>
   </div>
   <div class="row">
-  	<div class="medium-2 columns">
+  	<div class="medium-3 columns">
       <label>Period
-        <input type="text" id="1RM" placeholder="01101011">
+        <input type="text" id="1PD" placeholder="01101011">
       </label>
     </div>
   	<div class="medium-8 columns">
@@ -63,7 +63,13 @@
 			var a = 2;
 			var what = "what";
 			for (a = 2; a < 5; a++){
-			$("<div class=\"row\"> <div class=\"medium-2 columns\"><label>Period<input type=\"text\" id=\""+a+"PD\" placeholder=\"01101011\"></label></div><div class=\"medium-8 columns\"><label>Section ID<input type=\"text\" id=\""+a+"ID\" placeholder=\"01110000 01100101 01110000 01100101\"></label></div></div>").insertAfter(".row:last");
+			$("<div class=\"row\"> <div class=\"medium-3 columns\"><label>Period<input type=\"text\" id=\""+a+"PD\" placeholder=\"01101011\"></label></div><div class=\"medium-8 columns\"><label>Section ID<input type=\"text\" id=\""+a+"ID\" placeholder=\"01110000 01100101 01110000 01100101\"></label></div></div>").insertAfter(".row:last");
+			}
+			a = 5;
+			var x = 1;
+			while(x < a){
+				document.getElementById(x+"PD").value = x;
+				x++;
 			}
 			//ONCE CLASSES HAS BEEN FIGURED OUT AT SCHOOL, BELOW SHOULD WORK
 
