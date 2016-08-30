@@ -7,14 +7,14 @@
 <body>
 <h1>WAIT 2 SECONDS</h1>
 <script type="text/javascript">
-	window.onload = f();
+	//window.onload = f();
 	var response = {};
 	
 	function f(){
 		var username = String(prompt("Please enter your username: ", "2018agurung"));
 		var password = String(prompt("Please enter your password: ", "*******"));
 		var together = btoa(username + ':' + password);
-		$.ajax({
+		return $.ajax({
 			url: 'https://ion.tjhsst.edu/api/profile',
 			type: 'GET',
 			headers: {
@@ -22,16 +22,15 @@
 				'Authorization': 'Basic ' + together
 			},
 			dataType: "json",
-			success: function(text)
-        	{
-         		response = text;
-        	}
-		});	
-		//var temp = $.parseJSON(response)
-		//setTimeout(function(){document.write(response.results[0].date);}, 2000);
-		setTimeout(function(){
-			document.write(response.is_student);}, 2000);
-	};
+		});			
+	}
+	
+	$.when(f()).done(
+		function(response){
+			document.write(response.is_student);
+		}
+	);
+	
 </script>
 </body>
 
