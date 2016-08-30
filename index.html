@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TJ Schedule Comparator</title>
+	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>WAIT 2 SECONDS</h1>
+<script type="text/javascript">
+	window.onload = f();
+	var response = {};
+	
+	function f(){
+		var username = String(prompt("Please enter your username: ", "2018agurung"));
+		var password = String(prompt("Please enter your password: ", "*******"));
+		var together = btoa(username + ':' + password);
+		$.ajax({
+			url: 'https://ion.tjhsst.edu/api/profile',
+			type: 'GET',
+			headers: {
+				//'Authorization': 'Basic ' + btoa(''+username + ':' + password+'')
+				'Authorization': 'Basic ' + together
+			},
+			dataType: "json",
+			success: function(text)
+        	{
+         		response = text;
+        	}
+		});	
+		//var temp = $.parseJSON(response)
+		//setTimeout(function(){document.write(response.results[0].date);}, 2000);
+		setTimeout(function(){
+			document.write(response.is_student);}, 2000);
+	};
+</script>
+</body>
+
+</html>
