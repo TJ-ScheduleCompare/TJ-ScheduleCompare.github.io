@@ -1,2 +1,2 @@
 # TJ-ScheduleCompare.github.io
-A (probably abandoned) schedule compare tool for TJHSST students.(Ongoing project but not applicable until next august)
+A (probably abandoned) schedule compare tool for TJHSST students.(Progress will be halted until next august)
